@@ -1,81 +1,105 @@
 import { StatusBar } from 'expo-status-bar';
-import { SafeAreaView, StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import React, { useState } from 'react'
 
 export default function App() {
-  return (
-    <SafeAreaView style={styles.container}>
-      <View style={styles.box1}/>
-      <View style={styles.box2}/>
-      
-      <View style={styles.container1}>
-        <View style={styles.item1}/>
-        <View style={styles.item2}/>
-        <View style={styles.item3}/>
-        <View style={styles.item4}/>
-      </View>
+  const [number, setNumber] = useState(0);
 
-      <View style={styles.box3}/>
-      <View style={styles.box4}/>  
-   
-      <StatusBar style="auto" />
-    </SafeAreaView>
- 
+  const handleMinus = () => {
+    setNumber(number - 1);
+  };
+
+  const handlePlus = () => {
+    setNumber(number + 1);
+  };
+
+  return (
+    <View style = {styles.container}>
+      <View style = {styles.container1}><Text style = {styles.title}>This is my Counter</Text></View>
+      <View style = {styles.container2}>
+        <Text style = {styles.numberbox}>
+          {number}
+        </Text>
+      </View>
+      <View style = {styles.container3}>
+        <TouchableOpacity style = {styles.plus} onPress={handlePlus} disabled={number === 10}>
+          <Text style = {styles.buttontext}>
+            +
+          </Text>
+        </TouchableOpacity>
+        <TouchableOpacity style = {styles.minus} onPress={handleMinus} disabled={number === 0}>
+          <Text style = {styles.buttontext}>
+            -
+          </Text>
+        </TouchableOpacity>
+      </View>
+    </View>
   );
 }
-const styles = StyleSheet.create({
 
+const styles = StyleSheet.create({
   container: {
     flex:1,
-
-  },
-  
-  box1: {
-    flex:1,
-    backgroundColor:'blue',
-    borderWidth: 10,
-    borderColor: "red",
-  },
-  box2: {
-    flex:2,
-    backgroundColor:'green',
+    flexDirection:'column',
+    alignItems: 'center',
+    justifyContent: 'center',
   },
 
   container1: {
-    flex:3,
-    backgroundColor:'gray',
-    flexDirection: 'row',
-    gap:10,
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+
+  numberbox:{
+    fontSize:100,
+    fontWeight:'900',
+    color:'green',
+  },
+
+  title:{
+    fontSize:30,
+    fontWeight:'900',
+  },
+
+  plus:{
+    backgroundColor:'yellow',
+    width:80,
+    height:80,
+    justifyContent:'center',
+    alignItems:'center',
+    borderRadius: 40,
+  },
+
+  minus:{
+    backgroundColor:'red',
+    width:80,
+    height:80,
+    justifyContent:'center',
+    alignItems:'center',
+    borderRadius: 40,
+  },
+
+  container2: {
+    flex: 1,
+    backgroundColor: '#fff',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+
+  buttontext:{
+    color:'white',
+    fontSize:40,
+    fontWeight:'900',
     
   },
-
-  item1: {
-    flex:1,
-    backgroundColor:'#F6BB43',
+  
+  container3: {
+    flex: 1,
+    flexDirection:'row',
+    backgroundColor: '#fff',
+    alignItems: 'center',
+    justifyContent: 'center',
+    gap:'30',
   },
-
-  item2: {
-    flex:2,
-    backgroundColor:'#D0FC5C',
-  },
-
-  item3: {
-    flex:2,
-    backgroundColor:'#F6BB43',
-  },
-
-  item4: {
-    flex:1,
-    backgroundColor:'#81C747',
-  },
-
-  box3:{
-    flex: 2,
-    backgroundColor: "pink",
-  },
-
-  box4:{
-    flex:1,
-    backgroundColor: '#81C747',
-  }
- 
 });

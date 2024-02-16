@@ -15,7 +15,7 @@ export default function App() {
 
   return (
     <View style = {styles.container}>
-      <View style = {styles.container1}><Text style = {styles.title}>This is my Counter</Text></View>
+      <View style = {styles.container1}><Text style = {styles.title}>This is my Counter!!</Text></View>
       <View style = {styles.container2}>
         <Text style = {styles.numberbox}>
           {number}
@@ -64,7 +64,7 @@ const styles = StyleSheet.create({
 
   plus:{
     backgroundColor:'yellow',
-    width:80,
+    width:81,
     height:80,
     justifyContent:'center',
     alignItems:'center',
@@ -100,6 +100,6 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'center',
-    gap:'30',
+    gap:30,
   },
 });

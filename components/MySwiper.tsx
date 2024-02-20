@@ -26,7 +26,7 @@ export default function MySwiper() {
 
   return (
       <Swiper>
-        {data.webtoons.map((webtoon) => <LargeView webtoon = {webtoon}/>)}
+        {data ? data.webtoons.map((webtoon) => <LargeView webtoon = {webtoon}/>):[]}
       </Swiper>
    
     );

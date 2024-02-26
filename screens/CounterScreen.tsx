@@ -10,7 +10,7 @@ import {
     Text,
     VStack,
   } from '@gluestack-ui/themed';
-  import { useState } from 'react';
+import { useState } from 'react';
 import NumberBoard from '../components/Counter/NumberBoard';
 import NumberInput from '../components/Counter/NumberInput';
 import NumberPreview from '../components/Counter/NumberPreview';
@@ -35,10 +35,8 @@ import NumberPreview from '../components/Counter/NumberPreview';
     };
   
     return (
-      <Center width='$full' height='$full' bg='skyblue' gap={100}>
-        <Text size='4xl' bold={true}>
-          This is My Counter!
-        </Text>
+      <Center width='$full' height='$full' bg='blue' gap={100}>
+        <Text size='4xl' bold={true}>This is My Counter</Text>
         <NumberBoard count={number}/>
         <VStack gap={30} alignItems='center'>
           <NumberInput inputNumber={inputnum} onChangeInputNumber={handleChangeInputNumber}/>
